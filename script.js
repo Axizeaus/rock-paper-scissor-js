@@ -70,11 +70,11 @@ function play_a_single_round(){
     }
 }
 
-function play_multiple_rounds(){
-    let num_of_times = prompt("How many times would you like to play?");
-    for (let i = 0; i < Number(num_of_times); i++){
-        play_a_single_round();
-    }
-}
+// function play_multiple_rounds(){
+//     let num_of_times = prompt("How many times would you like to play?");
+//     for (let i = 0; i < Number(num_of_times); i++){
+//         play_a_single_round();
+//     }
+// }
 
-play_multiple_rounds()
+play_a_single_round()
