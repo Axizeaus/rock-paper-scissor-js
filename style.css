@@ -1,0 +1,24 @@
+img{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(53, 40, 40);
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 150px;
+}
+
+#header > h1 {
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
