@@ -68,29 +68,37 @@ function computer_play() {
 
 // play_a_single_round()
 
+function display_on_screen() {
+    const container = document.querySelector('#scoreboard');
+
+    const content = document.createElement('div');
+    content.classList.add('content')
+    content.textContent = get_user_input();
+
+    container.appendChild(content);
+}
+
 
 function get_user_input() {
 
-    // let player_choice = 'nothing';
-
     const rock = document.querySelector('#rock');
-    rock.addEventListener('click', () => {
-        let player_choice = 'rock';
-        return player_choice;
+    let player_choice = rock.addEventListener('click', () => {
+        return 'rock';
     });
 
-    const paper = document.querySelector('#paper');
-    paper.addEventListener('click', () => {
-        let player_choice = 'paper';
-        return player_choice;
-    });
+    // const paper = document.querySelector('#paper');
+    // paper.addEventListener('click', () => {
+    //     let player_choice = 'paper';
+    //     return player_choice;
+    // });
 
-    const scissor = document.querySelector('#scissor');
-    scissor.addEventListener('click', () => {
-        let player_choice = 'scissor';
-        return player_choice;
-    });
-    
+    // const scissor = document.querySelector('#scissor');
+    // scissor.addEventListener('click', () => {
+    //     let player_choice = 'scissor';
+    //     return player_choice;
+    // });
+    console.log(player_choice)
+    return player_choice
 }
 
 // function play_a_single_round() {
@@ -103,15 +111,6 @@ function get_user_input() {
 //     }
 // }
 
-function display_on_screen() {
-    const container = document.querySelector('#scoreboard');
 
-    const content = document.createElement('div');
-    content.classList.add('content')
-    content.textContent = get_user_input();
-
-    container.appendChild(content);
-}
-
+console.log(get_user_input())
 display_on_screen()
-// console.log(get_user_input())
