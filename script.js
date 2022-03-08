@@ -17,45 +17,56 @@ function computer_play() {
     }
 }
 
-// function choose_rock(player_choice, computer_choice){
-//     if (player_choice == 'rock' && computer_choice == 'paper'){
-//         return computer_choice;
-//     }
-//     else{
-//         return player_choice;
-//     }
-// }
+function choose_rock(player_choice, computer_choice){
+    if (player_choice == 'rock' && computer_choice == 'paper'){
+        return computer_choice;
+    }
+    else{
+        return player_choice;
+    }
+}
 
-// function choose_paper(player_choice, computer_choice){
-//     if (player_choice == 'paper' && computer_choice == 'scissor'){
-//         return computer_choice;
-//     }
-//     else {
-//         return player_choice;
-//     }
-// }
+function choose_paper(player_choice, computer_choice){
+    if (player_choice == 'paper' && computer_choice == 'scissor'){
+        return computer_choice;
+    }
+    else {
+        return player_choice;
+    }
+}
 
-// function choose_scissor(player_choice, computer_choice){
-//     if (player_choice == 'scissor' && computer_choice == 'rock'){
-//         return computer_choice;
-//     }
-//     else {
-//         return player_choice;
-//     }
-// }
+function choose_scissor(player_choice, computer_choice){
+    if (player_choice == 'scissor' && computer_choice == 'rock'){
+        return computer_choice;
+    }
+    else {
+        return player_choice;
+    }
+}
 
-// function game_mechanism(player_choice, computer_choice){
-//     if (player_choice == 'rock'){
-//         let winner = choose_rock(player_choice,computer_choice);
-//         console.log(`${winner} is the winner`);
-//     } else if (player_choice == 'paper'){
-//         let winner = choose_paper(player_choice,computer_choice);
-//         console.log(`${winner} is the winner`);
-//     } else {
-//         let winner = choose_scissor(player_choice,computer_choice)
-//         console.log(`${winner} is the winner`)
-//     }
-// }
+
+function play_a_single_round(user_input) {
+    let player_choice = user_input;
+    let computer_choice = computer_play();
+    if (player_choice == computer_choice) {
+        console.log("it is a draw");
+    } else {
+        game_mechanism(user_input, computer_choice);
+    }
+}
+
+function game_mechanism(player_choice, computer_choice){
+    if (player_choice == 'rock'){
+        let winner = choose_rock(player_choice,computer_choice);
+        console.log(`${winner} is the winner`);
+    } else if (player_choice == 'paper'){
+        let winner = choose_paper(player_choice,computer_choice);
+        console.log(`${winner} is the winner`);
+    } else {
+        let winner = choose_scissor(player_choice,computer_choice)
+        console.log(`${winner} is the winner`)
+    }
+}
 
 
 
@@ -68,12 +79,12 @@ function computer_play() {
 
 // play_a_single_round()
 
-function display_on_screen() {
+function display_on_screen(user_input) {
     const container = document.querySelector('#scoreboard');
 
     const content = document.createElement('div');
     content.classList.add('content')
-    content.textContent = get_user_input();
+    content.textContent = user_input;
 
     container.appendChild(content);
 }
@@ -82,35 +93,23 @@ function display_on_screen() {
 function get_user_input() {
 
     const rock = document.querySelector('#rock');
-    let player_choice = rock.addEventListener('click', () => {
-        return 'rock';
-    });
+    rock.onclick = () => {
+        console.log('You chose rock')
+        play_a_single_round('rock');
+    };
 
-    // const paper = document.querySelector('#paper');
-    // paper.addEventListener('click', () => {
-    //     let player_choice = 'paper';
-    //     return player_choice;
-    // });
+    const paper = document.querySelector('#paper');
+    paper.onclick = () => {
+        console.log('you chose paper');
+        play_a_single_round('paper');
+    };
 
-    // const scissor = document.querySelector('#scissor');
-    // scissor.addEventListener('click', () => {
-    //     let player_choice = 'scissor';
-    //     return player_choice;
-    // });
-    console.log(player_choice)
-    return player_choice
+    const scissor = document.querySelector('#scissor');
+    scissor.onclick = () => {
+        console.log('you chose scissor');
+        play_a_single_round('scissor');
+    }
+    
 }
 
-// function play_a_single_round() {
-//     let player_choice = get_user_input();
-//     let computer_choice = computer_play();
-//     if (player_choice == computer_choice) {
-//         console.log("it is a draw");
-//     } else {
-//         game_mechanism(player_choice, computer_choice);
-//     }
-// }
-
-
-console.log(get_user_input())
-display_on_screen()
+get_user_input();
