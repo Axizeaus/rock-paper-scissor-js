@@ -23,6 +23,12 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#scoreboard {
+    border: 5px solid white;
+    color: white;
+    margin: 25px;
+}
+
 #console {
     width: 400px; 
     height: 300px;
